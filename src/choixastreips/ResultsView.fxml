@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -19,48 +20,48 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="table" prefHeight="300.0" prefWidth="619.0">
+                        <TableView fx:id="table" prefHeight="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="col_id" prefWidth="26.0" text="id" />
-                            <TableColumn fx:id="col_timestamp" prefWidth="91.0" text="Timestamp" />
-                              <TableColumn fx:id="col_numEtu" prefWidth="108.0" text="Numero etudiant" />
-                              <TableColumn fx:id="col_pays" prefWidth="75.0" text="D-où viens tu" />
-                              <TableColumn fx:id="col_parcours" prefWidth="75.0" text="Parcours" />
-                              <TableColumn fx:id="id_toeic" prefWidth="75.0" text="Toeic" />
-                              <TableColumn fx:id="id_associations" prefWidth="75.0" text="associations" />
-                              <TableColumn fx:id="id_telephone" prefWidth="75.0" text="apple ou android" />
-                              <TableColumn fx:id="col_fiction" prefWidth="75.0" text="Personnage de fiction preferee " />
-                              <TableColumn fx:id="col_freetime" prefWidth="75.0" text="Activité temps libre" />
-                              <TableColumn fx:id="col_serie" prefWidth="75.0" text="Film/série préférée" />
-                              <TableColumn fx:id="col_navigateur" prefWidth="75.0" text="Navigateur préféré" />
-                              <TableColumn fx:id="col_languageProg" prefWidth="75.0" text="language de programmation" />
-                              <TableColumn fx:id="col_arduinoRasp" prefWidth="75.0" text="Arduino/Raspberry? " />
-                              <TableColumn fx:id="col_logRetouche" prefWidth="75.0" text="logiciel de retouche? Paint/photoshop" />
-                              <TableColumn fx:id="col_linux" prefWidth="75.0" text="Linux?" />
-                              <TableColumn fx:id="col_mac" prefWidth="75.0" text="Mac?" />
-                              <TableColumn fx:id="col_windows" prefWidth="75.0" text="Windows?" />
-                              <TableColumn fx:id="col_LogMontageVid" prefWidth="75.0" text="Logiciels de montage video?" />
-                              <TableColumn fx:id="col_LogCAOSolidworks" prefWidth="75.0" text="Logiciels de CAO(solidworks)?" />
-                              <TableColumn fx:id="col_LogCreationJeu" prefWidth="75.0" text="Logiciels création de jeux vidéos?" />
-                              <TableColumn fx:id="col_logo" prefWidth="75.0" text="Création Logos?" />
-                              <TableColumn fx:id="col_robot" prefWidth="75.0" text="Création Robot?" />
-                              <TableColumn fx:id="col_appMobile" prefWidth="75.0" text="Création app mobile?" />
-                              <TableColumn fx:id="col_jeuxVidéo" prefWidth="75.0" text="Création jeu vidéo?" />
-                              <TableColumn fx:id="col_logPc" prefWidth="75.0" text="Création logiciel sur pc? " />
-                              <TableColumn fx:id="col_sysElectronique" prefWidth="75.0" text="Creation de système electronique?" />
-                              <TableColumn fx:id="col_avisVS" prefWidth="75.0" text="Avis sur Visual studio" />
-                              <TableColumn fx:id="col_avisNotepad" prefWidth="75.0" text="Avis sur Notepad++" />
-                              <TableColumn fx:id="col_avisCodeblocks" prefWidth="75.0" text="Avis sur Codeblocks" />
-                              <TableColumn fx:id="col_avisAndroidStudio" prefWidth="75.0" text="Avis sur Android Studio" />
-                              <TableColumn fx:id="col_avisEclipse" prefWidth="75.0" text="Avis sur Eclipse" />
-                              <TableColumn fx:id="col_avisIntellij" prefWidth="75.0" text="Avis sur Intellij" />
-                              <TableColumn fx:id="col_avisLabview" prefWidth="75.0" text="Avis sur LabView" />
-                              <TableColumn fx:id="col_avisUnity" prefWidth="75.0" text="Avis sur Unity" />
-                              <TableColumn fx:id="col_avisUnrealEngine" prefWidth="75.0" text="Avis sur Unreal Engine" />
-                              <TableColumn fx:id="col_avisSublimeText" prefWidth="75.0" text="Avis sur SublimeText" />
-                              <TableColumn fx:id="col_avisAtom" prefWidth="75.0" text="Avis sur Atom" />
-                              <TableColumn fx:id="col_avisAnaconda" prefWidth="75.0" text="Avis sur Anaconda" />
-                              <TableColumn fx:id="col_avisIonic" prefWidth="75.0" text="Avis sur Ionic" />
+                            <TableColumn fx:id="col_id" prefWidth="100.0" text="id" />
+                            <TableColumn fx:id="col_timestamp" prefWidth="100.0" text="Timestamp" />
+                              <TableColumn fx:id="col_numEtu" prefWidth="100.0" text="Numero etudiant" />
+                              <TableColumn fx:id="col_pays" prefWidth="100.0" text="D-où viens tu" />
+                              <TableColumn fx:id="col_parcours" prefWidth="100.0" text="Parcours" />
+                              <TableColumn fx:id="id_toeic" prefWidth="100.0" text="Toeic" />
+                              <TableColumn fx:id="id_associations" prefWidth="100.0" text="associations" />
+                              <TableColumn fx:id="id_telephone" prefWidth="100.0" text="apple ou android" />
+                              <TableColumn fx:id="col_fiction" prefWidth="100.0" text="Personnage de fiction preferee " />
+                              <TableColumn fx:id="col_freetime" prefWidth="100.0" text="Activité temps libre" />
+                              <TableColumn fx:id="col_serie" prefWidth="100.0" text="Film/série préférée" />
+                              <TableColumn fx:id="col_navigateur" prefWidth="100.0" text="Navigateur préféré" />
+                              <TableColumn fx:id="col_languageProg" prefWidth="100.0" text="language de programmation" />
+                              <TableColumn fx:id="col_arduinoRasp" prefWidth="100.0" text="Arduino/Raspberry? " />
+                              <TableColumn fx:id="col_logRetouche" prefWidth="100.0" text="logiciel de retouche? Paint/photoshop" />
+                              <TableColumn fx:id="col_linux" prefWidth="100.0" text="Linux?" />
+                              <TableColumn fx:id="col_mac" prefWidth="100.0" text="Mac?" />
+                              <TableColumn fx:id="col_windows" prefWidth="100.0" text="Windows?" />
+                              <TableColumn fx:id="col_LogMontageVid" prefWidth="100.0" text="Logiciels de montage video?" />
+                              <TableColumn fx:id="col_LogCAOSolidworks" prefWidth="100.0" text="Logiciels de CAO(solidworks)?" />
+                              <TableColumn fx:id="col_LogCreationJeu" prefWidth="100.0" text="Logiciels création de jeux vidéos?" />
+                              <TableColumn fx:id="col_logo" prefWidth="100.0" text="Création Logos?" />
+                              <TableColumn fx:id="col_robot" prefWidth="100.0" text="Création Robot?" />
+                              <TableColumn fx:id="col_appMobile" prefWidth="100.0" text="Création app mobile?" />
+                              <TableColumn fx:id="col_jeuxVidéo" prefWidth="100.0" text="Création jeu vidéo?" />
+                              <TableColumn fx:id="col_logPc" prefWidth="100.0" text="Création logiciel sur pc? " />
+                              <TableColumn fx:id="col_sysElectronique" prefWidth="100.0" text="Creation de système electronique?" />
+                              <TableColumn fx:id="col_avisVS" prefWidth="100.0" text="Avis sur Visual studio" />
+                              <TableColumn fx:id="col_avisNotepad" prefWidth="100.0" text="Avis sur Notepad++" />
+                              <TableColumn fx:id="col_avisCodeblocks" prefWidth="100.0" text="Avis sur Codeblocks" />
+                              <TableColumn fx:id="col_avisAndroidStudio" prefWidth="100.0" text="Avis sur Android Studio" />
+                              <TableColumn fx:id="col_avisEclipse" prefWidth="100.0" text="Avis sur Eclipse" />
+                              <TableColumn fx:id="col_avisIntellij" prefWidth="100.0" text="Avis sur Intellij" />
+                              <TableColumn fx:id="col_avisLabview" prefWidth="100.0" text="Avis sur LabView" />
+                              <TableColumn fx:id="col_avisUnity" prefWidth="100.0" text="Avis sur Unity" />
+                              <TableColumn fx:id="col_avisUnrealEngine" prefWidth="100.0" text="Avis sur Unreal Engine" />
+                              <TableColumn fx:id="col_avisSublimeText" prefWidth="100.0" text="Avis sur SublimeText" />
+                              <TableColumn fx:id="col_avisAtom" prefWidth="100.0" text="Avis sur Atom" />
+                              <TableColumn fx:id="col_avisAnaconda" prefWidth="100.0" text="Avis sur Anaconda" />
+                              <TableColumn fx:id="col_avisIonic" prefWidth="100.0" text="Avis sur Ionic" />
                           </columns>
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -70,21 +71,40 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Calculation des Hypothèses">
+          <Tab text="Calcul des Hypothèses">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="594.0">
                      <children>
-                        <Button fx:id="id_btnHyp1" layoutX="14.0" layoutY="32.0" mnemonicParsing="false" text="Test Hypothèses" />
-                        <Text fx:id="id_tvHyp1" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvHyp2" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvHyp3" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvHyp4" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvHyp5" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvHyp7" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvHyp6" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvTotal" layoutX="194.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
-                        <Text fx:id="id_tvReste" layoutX="51.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result test here : " />
+                        <Button fx:id="id_btnHyp1" layoutX="219.0" layoutY="303.0" mnemonicParsing="false" text="Calculer les hypothèses" />
+                        <Text fx:id="id_tvHyp1" layoutX="560.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp2" layoutX="560.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp3" layoutX="560.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp4" layoutX="560.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp5" layoutX="560.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp7" layoutX="560.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp6" layoutX="560.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvTotal" layoutX="562.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvReste" layoutX="561.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text layoutX="9.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 1 : Les étudiants qui ont régulièrement utilisé Arduino ont déjà programmé avec C++/C et python qui va justifier leur choix ASTRE " wrappingWidth="498.6029052734375" />
+                        <Text layoutX="9.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 2 : Les étudiants ayant fait au moins trois langages du web feront IPS " wrappingWidth="436.147216796875" />
+                        <Text layoutX="8.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 3 : Les étudiants ayant un parcours BTS et qui ont fait du dev. Web auront tendance à faire IPS" wrappingWidth="440.2135009765625" />
+                        <Text layoutX="9.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 4 : Les étudiants qui jouent aux jeu vidéos et qui sont intégrés dans des associations d’infographie vont plutôt suivre un parcours IPS. " wrappingWidth="436.0938720703125" />
+                        <Text layoutX="9.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 5 : Les étudiants qui utilisent régulièrement les logiciels de retouche et jouent aux jeux vidéo ont un profil IPS." wrappingWidth="429.80078125" />
+                        <Text layoutX="8.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 6 : Les étudiants qui utilisent régulièrement arduino, créent régulièrement des robots et intéressées par ensimelec ont un profil ASTRE." wrappingWidth="495.8084716796875" />
+                        <Text layoutX="9.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 7 : Les étudiants utilisant un logiciel de retouche et Mac ont un profil IPS." wrappingWidth="469.6601867675781" />
+                        <Text layoutX="518.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autre : " />
+                        <Text layoutX="519.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total :" />
+                        <Separator layoutX="9.0" layoutY="42.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Separator layoutX="9.0" layoutY="83.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Separator layoutX="12.0" layoutY="123.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Separator layoutX="11.0" layoutY="164.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Separator layoutX="11.0" layoutY="204.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Separator layoutX="11.0" layoutY="246.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Separator layoutX="14.0" layoutY="289.0" prefHeight="0.0" prefWidth="579.0" />
                      </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
                   </AnchorPane>
             </content>
           </Tab>
@@ -95,6 +115,16 @@
                         <PieChart fx:id="chart" layoutX="64.0" layoutY="9.0" prefHeight="317.0" prefWidth="466.0" />
                      </children>
                   </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Résultat avec pondération">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Historique">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
         </tabs>

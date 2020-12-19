@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -240,7 +241,7 @@ public class ResultsController implements Initializable{
                                    col_avisIonic.setCellValueFactory(new PropertyValueFactory<>("avisIonic"));
                                 
                                 
- 
+    table.setItems(oblist);
             
             id_btnHyp1.setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent e) {
@@ -260,7 +261,6 @@ public class ResultsController implements Initializable{
                 Set<String> s1 = new HashSet<>();
 
                 listAstre.removeIf(p -> !s1.add(p.getNum_etu()));
-             
                 int sizeListAstre =listAstre.size();
                 
                 listIPS.addAll(list2);
@@ -272,7 +272,7 @@ public class ResultsController implements Initializable{
                 
                 Set<String> s2 = new HashSet<>();
                  listIPS.removeIf(p -> !s2.add(p.getNum_etu()));
-
+              
                 int sizeListIps=listIPS.size();
                 
                 
@@ -289,10 +289,16 @@ public class ResultsController implements Initializable{
   
               int sizeDoute= listDoute.size();
         
+              
+                              listAstre.removeAll(listDoute);
+                              sizeListAstre =listAstre.size();
+                              listIPS.removeAll(listDoute);
+                              sizeListIps =listIPS.size();
+                              
                 listAutre=oblist;
                 listAutre.removeAll(listIPS);
                 listAutre.removeAll(listAstre);
-                listAutre.removeAll(listDoute);
+                 listAutre.removeAll(listDoute);
                  Set<String> s3 = new HashSet<>();
                 listAutre.removeIf(p -> !s3.add(p.getNum_etu()));
                 
@@ -301,19 +307,29 @@ public class ResultsController implements Initializable{
                 String resteS=String.valueOf(sizeReste);  
                 id_tvReste.setText(resteS);
                 
-                int total=sizeListIps+sizeListAstre-sizeDoute+sizeReste;
+                int total=sizeListIps+sizeListAstre+sizeReste+sizeDoute;
                String totalS=String.valueOf(total);  
                id_tvTotal.setText(totalS);
                 
-               table.setItems(listDoute);
+            
                ObservableList<PieChart.Data> pieChartData =
             FXCollections.observableArrayList(
             new PieChart.Data("ASTRE", sizeListAstre),
             new PieChart.Data("IPS", sizeListIps),
-            new PieChart.Data("Doute", sizeDoute),
-            new PieChart.Data("Autre", sizeReste));
+            new PieChart.Data("En Doute", sizeDoute),
+            new PieChart.Data("Pas concernés", sizeReste));
             
+               
             chart.setData(pieChartData);
+             chart.setTitle("Choix Astre/IPS (Sans Pondération)");
+            
+            pieChartData.forEach(data ->
+                 data.nameProperty().bind(
+                Bindings.concat(
+                        data.getName(), " : ", data.pieValueProperty().intValue(), " personnes. "
+                )
+                     )
+                );
                
                
                 }
