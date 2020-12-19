@@ -5,6 +5,8 @@
  */
 package choixastreips.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Ghada
@@ -218,6 +220,187 @@ public class Data {
 
     public String getAvisIonic() {
         return avisIonic;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.id);
+        hash = 83 * hash + Objects.hashCode(this.timestamp);
+        hash = 83 * hash + Objects.hashCode(this.num_etu);
+        hash = 83 * hash + Objects.hashCode(this.pays);
+        hash = 83 * hash + Objects.hashCode(this.parcours);
+        hash = 83 * hash + Objects.hashCode(this.toeic);
+        hash = 83 * hash + Objects.hashCode(this.associations);
+        hash = 83 * hash + Objects.hashCode(this.telephone);
+        hash = 83 * hash + Objects.hashCode(this.fiction);
+        hash = 83 * hash + Objects.hashCode(this.freetime);
+        hash = 83 * hash + Objects.hashCode(this.serie);
+        hash = 83 * hash + Objects.hashCode(this.navigateur);
+        hash = 83 * hash + Objects.hashCode(this.languageProg);
+        hash = 83 * hash + Objects.hashCode(this.arduinoRasp);
+        hash = 83 * hash + Objects.hashCode(this.logRetouche);
+        hash = 83 * hash + Objects.hashCode(this.linux);
+        hash = 83 * hash + Objects.hashCode(this.mac);
+        hash = 83 * hash + Objects.hashCode(this.windows);
+        hash = 83 * hash + Objects.hashCode(this.logMontageVid);
+        hash = 83 * hash + Objects.hashCode(this.logCAOSolidworks);
+        hash = 83 * hash + Objects.hashCode(this.logCreationJeu);
+        hash = 83 * hash + Objects.hashCode(this.logo);
+        hash = 83 * hash + Objects.hashCode(this.robot);
+        hash = 83 * hash + Objects.hashCode(this.appMobile);
+        hash = 83 * hash + Objects.hashCode(this.jeuxVideo);
+        hash = 83 * hash + Objects.hashCode(this.logPc);
+        hash = 83 * hash + Objects.hashCode(this.sysElectronique);
+        hash = 83 * hash + Objects.hashCode(this.avisVS);
+        hash = 83 * hash + Objects.hashCode(this.avisNotepad);
+        hash = 83 * hash + Objects.hashCode(this.avisCodeblocks);
+        hash = 83 * hash + Objects.hashCode(this.avisAndroidStudio);
+        hash = 83 * hash + Objects.hashCode(this.avisEclipse);
+        hash = 83 * hash + Objects.hashCode(this.avisIntellij);
+        hash = 83 * hash + Objects.hashCode(this.avisLabview);
+        hash = 83 * hash + Objects.hashCode(this.avisUnity);
+        hash = 83 * hash + Objects.hashCode(this.avisUnrealEngine);
+        hash = 83 * hash + Objects.hashCode(this.avisSublmimeText);
+        hash = 83 * hash + Objects.hashCode(this.avisAtom);
+        hash = 83 * hash + Objects.hashCode(this.avisAnaconda);
+        hash = 83 * hash + Objects.hashCode(this.avisIonic);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Data other = (Data) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.timestamp, other.timestamp)) {
+            return false;
+        }
+        if (!Objects.equals(this.num_etu, other.num_etu)) {
+            return false;
+        }
+        if (!Objects.equals(this.pays, other.pays)) {
+            return false;
+        }
+        if (!Objects.equals(this.parcours, other.parcours)) {
+            return false;
+        }
+        if (!Objects.equals(this.toeic, other.toeic)) {
+            return false;
+        }
+        if (!Objects.equals(this.associations, other.associations)) {
+            return false;
+        }
+        if (!Objects.equals(this.telephone, other.telephone)) {
+            return false;
+        }
+        if (!Objects.equals(this.fiction, other.fiction)) {
+            return false;
+        }
+        if (!Objects.equals(this.freetime, other.freetime)) {
+            return false;
+        }
+        if (!Objects.equals(this.serie, other.serie)) {
+            return false;
+        }
+        if (!Objects.equals(this.navigateur, other.navigateur)) {
+            return false;
+        }
+        if (!Objects.equals(this.languageProg, other.languageProg)) {
+            return false;
+        }
+        if (!Objects.equals(this.arduinoRasp, other.arduinoRasp)) {
+            return false;
+        }
+        if (!Objects.equals(this.logRetouche, other.logRetouche)) {
+            return false;
+        }
+        if (!Objects.equals(this.linux, other.linux)) {
+            return false;
+        }
+        if (!Objects.equals(this.mac, other.mac)) {
+            return false;
+        }
+        if (!Objects.equals(this.windows, other.windows)) {
+            return false;
+        }
+        if (!Objects.equals(this.logMontageVid, other.logMontageVid)) {
+            return false;
+        }
+        if (!Objects.equals(this.logCAOSolidworks, other.logCAOSolidworks)) {
+            return false;
+        }
+        if (!Objects.equals(this.logCreationJeu, other.logCreationJeu)) {
+            return false;
+        }
+        if (!Objects.equals(this.logo, other.logo)) {
+            return false;
+        }
+        if (!Objects.equals(this.robot, other.robot)) {
+            return false;
+        }
+        if (!Objects.equals(this.appMobile, other.appMobile)) {
+            return false;
+        }
+        if (!Objects.equals(this.jeuxVideo, other.jeuxVideo)) {
+            return false;
+        }
+        if (!Objects.equals(this.logPc, other.logPc)) {
+            return false;
+        }
+        if (!Objects.equals(this.sysElectronique, other.sysElectronique)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisVS, other.avisVS)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisNotepad, other.avisNotepad)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisCodeblocks, other.avisCodeblocks)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisAndroidStudio, other.avisAndroidStudio)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisEclipse, other.avisEclipse)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisIntellij, other.avisIntellij)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisLabview, other.avisLabview)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisUnity, other.avisUnity)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisUnrealEngine, other.avisUnrealEngine)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisSublmimeText, other.avisSublmimeText)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisAtom, other.avisAtom)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisAnaconda, other.avisAnaconda)) {
+            return false;
+        }
+        if (!Objects.equals(this.avisIonic, other.avisIonic)) {
+            return false;
+        }
+        return true;
     }
 
     
