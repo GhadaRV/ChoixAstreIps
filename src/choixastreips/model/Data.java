@@ -12,12 +12,12 @@ import java.util.Objects;
  * @author Ghada
  */
 public class Data {
-    
-    String id, timestamp,num_etu, pays, parcours, toeic, associations,telephone,fiction,
-            freetime,serie,navigateur,languageProg,arduinoRasp,logRetouche,linux,mac,windows,
-            logMontageVid,logCAOSolidworks,logCreationJeu,logo,robot,appMobile,jeuxVideo,logPc,
-            sysElectronique,avisVS,avisNotepad,avisCodeblocks,avisAndroidStudio,avisEclipse,avisIntellij,avisLabview,
-            avisUnity,avisUnrealEngine,avisSublmimeText,avisAtom,avisAnaconda,avisIonic;
+
+    String id, timestamp, num_etu, pays, parcours, toeic, associations, telephone, fiction,
+            freetime, serie, navigateur, languageProg, arduinoRasp, logRetouche, linux, mac, windows,
+            logMontageVid, logCAOSolidworks, logCreationJeu, logo, robot, appMobile, jeuxVideo, logPc,
+            sysElectronique, avisVS, avisNotepad, avisCodeblocks, avisAndroidStudio, avisEclipse, avisIntellij, avisLabview,
+            avisUnity, avisUnrealEngine, avisSublmimeText, avisAtom, avisAnaconda, avisIonic;
 
     public Data(String id, String timestamp, String num_etu, String pays, String parcours, String toeic, String associations, String telephone, String fiction, String freetime, String serie, String navigateur, String languageProg, String arduinoRasp, String logRetouche, String linux, String mac, String windows, String logMontageVid, String logCAOSolidworks, String logCreationJeu, String logo, String robot, String appMobile, String jeuxVideo, String logPc, String sysElectronique, String avisVS, String avisNotepad, String avisCodeblocks, String avisAndroidStudio, String avisEclipse, String avisIntellij, String avisLabview, String avisUnity, String avisUnrealEngine, String avisSublmimeText, String avisAtom, String avisAnaconda, String avisIonic) {
         this.id = id;
@@ -403,5 +403,4 @@ public class Data {
         return true;
     }
 
-    
 }

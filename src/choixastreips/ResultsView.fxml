@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@table.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="choixastreips.controller.ResultsController">
+<AnchorPane id="AnchorPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="777.0" stylesheets="@table.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="choixastreips.controller.ResultsController">
  
    <children>
-      <TabPane layoutX="4.0" layoutY="1.0" prefHeight="400.0" prefWidth="594.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="4.0" layoutY="1.0" prefHeight="536.0" prefWidth="777.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Raw Data">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane fx:id="n1" minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="749.0">
                      <children>
-                        <TableView fx:id="table" prefHeight="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="table" prefHeight="478.0" prefWidth="777.0">
                           <columns>
                             <TableColumn fx:id="col_id" prefWidth="100.0" text="id" />
                             <TableColumn fx:id="col_timestamp" prefWidth="100.0" text="Timestamp" />
@@ -73,53 +80,709 @@
           </Tab>
           <Tab text="Calcul des Hypothèses">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="594.0">
+              <AnchorPane fx:id="n2" maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="463.0" prefWidth="777.0">
                      <children>
-                        <Button fx:id="id_btnHyp1" layoutX="219.0" layoutY="303.0" mnemonicParsing="false" text="Calculer les hypothèses" />
-                        <Text fx:id="id_tvHyp1" layoutX="560.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvHyp2" layoutX="560.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvHyp3" layoutX="560.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvHyp4" layoutX="560.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvHyp5" layoutX="560.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvHyp7" layoutX="560.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvHyp6" layoutX="560.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvTotal" layoutX="562.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text fx:id="id_tvReste" layoutX="561.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
-                        <Text layoutX="9.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 1 : Les étudiants qui ont régulièrement utilisé Arduino ont déjà programmé avec C++/C et python qui va justifier leur choix ASTRE " wrappingWidth="498.6029052734375" />
-                        <Text layoutX="9.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 2 : Les étudiants ayant fait au moins trois langages du web feront IPS " wrappingWidth="436.147216796875" />
-                        <Text layoutX="8.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 3 : Les étudiants ayant un parcours BTS et qui ont fait du dev. Web auront tendance à faire IPS" wrappingWidth="440.2135009765625" />
-                        <Text layoutX="9.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 4 : Les étudiants qui jouent aux jeu vidéos et qui sont intégrés dans des associations d’infographie vont plutôt suivre un parcours IPS. " wrappingWidth="436.0938720703125" />
-                        <Text layoutX="9.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 5 : Les étudiants qui utilisent régulièrement les logiciels de retouche et jouent aux jeux vidéo ont un profil IPS." wrappingWidth="429.80078125" />
-                        <Text layoutX="8.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 6 : Les étudiants qui utilisent régulièrement arduino, créent régulièrement des robots et intéressées par ensimelec ont un profil ASTRE." wrappingWidth="495.8084716796875" />
-                        <Text layoutX="9.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 7 : Les étudiants utilisant un logiciel de retouche et Mac ont un profil IPS." wrappingWidth="469.6601867675781" />
-                        <Text layoutX="518.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autre : " />
-                        <Text layoutX="519.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total :" />
-                        <Separator layoutX="9.0" layoutY="42.0" prefHeight="0.0" prefWidth="579.0" />
-                        <Separator layoutX="9.0" layoutY="83.0" prefHeight="0.0" prefWidth="579.0" />
-                        <Separator layoutX="12.0" layoutY="123.0" prefHeight="0.0" prefWidth="579.0" />
-                        <Separator layoutX="11.0" layoutY="164.0" prefHeight="0.0" prefWidth="579.0" />
-                        <Separator layoutX="11.0" layoutY="204.0" prefHeight="0.0" prefWidth="579.0" />
-                        <Separator layoutX="11.0" layoutY="246.0" prefHeight="0.0" prefWidth="579.0" />
-                        <Separator layoutX="14.0" layoutY="289.0" prefHeight="0.0" prefWidth="579.0" />
+                        <Button fx:id="id_btnHyp1" layoutX="305.0" layoutY="401.0" mnemonicParsing="false" text="Calculer les hypothèses" />
+                        <Text fx:id="id_tvHyp1" layoutX="685.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp2" layoutX="685.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp3" layoutX="685.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp4" layoutX="685.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp5" layoutX="685.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp7" layoutX="685.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvHyp6" layoutX="685.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvTotal" layoutX="685.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text fx:id="id_tvReste" layoutX="684.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text layoutX="9.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 1 : Les étudiants qui ont régulièrement utilisé Arduino ont déjà programmé avec C++/C et python qui va justifier leur choix ASTRE " wrappingWidth="604.6029052734375" />
+                        <Text layoutX="8.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 2 : Les étudiants ayant fait au moins trois langages du web feront IPS " wrappingWidth="593.147216796875" />
+                        <Text layoutX="11.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 3 : Les étudiants ayant un parcours BTS et qui ont fait du dev. Web auront tendance à faire IPS" wrappingWidth="600.2135009765625" />
+                        <Text layoutX="10.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 4 : Les étudiants qui jouent aux jeu vidéos et qui sont intégrés dans des associations d’infographie vont plutôt suivre un parcours IPS. " wrappingWidth="619.0938720703125" />
+                        <Text layoutX="11.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 5 : Les étudiants qui utilisent régulièrement les logiciels de retouche et jouent aux jeux vidéo ont un profil IPS." wrappingWidth="617.80078125" />
+                        <Text layoutX="14.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 6 : Les étudiants qui utilisent régulièrement arduino, créent régulièrement des robots et intéressées par ensimelec ont un profil ASTRE." wrappingWidth="625.8084716796875" />
+                        <Text layoutX="12.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 7 : Les étudiants utilisant un logiciel de retouche et Mac ont un profil IPS." wrappingWidth="616.6601867675781" />
+                        <Text layoutX="641.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autre : " />
+                        <Text layoutX="642.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total :" />
+                        <Separator layoutX="9.0" layoutY="99.0" prefHeight="0.0" prefWidth="730.0" />
+                        <Separator layoutX="9.0" layoutY="134.0" prefHeight="6.0" prefWidth="729.0" />
+                        <Separator layoutX="9.0" layoutY="176.0" prefHeight="0.0" prefWidth="733.0" />
+                        <Separator layoutX="11.0" layoutY="216.0" prefHeight="1.0" prefWidth="728.0" />
+                        <Separator layoutX="9.0" layoutY="256.0" prefHeight="0.0" prefWidth="732.0" />
+                        <Separator layoutX="12.0" layoutY="304.0" prefHeight="2.0" prefWidth="728.0" />
+                        <Separator layoutX="12.0" layoutY="340.0" prefHeight="4.0" prefWidth="731.0" />
+                        <Text fx:id="id_tvHyp8" layoutX="685.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" />
+                        <Text layoutX="12.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hypothèse 8 : Les étudiants ayant fait une prepa, ne codant pas pendant leur temps libre, ne s'intéressant pas à l’infographie(hors mis les logiciels de retouche) iront en ASTRE" wrappingWidth="616.6601867675781" />
+                        <Separator layoutX="12.0" layoutY="386.0" prefHeight="4.0" prefWidth="731.0" />
                      </children>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab text="Résultat sans pondération">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane fx:id="n3" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <PieChart fx:id="chart" layoutX="64.0" layoutY="9.0" prefHeight="317.0" prefWidth="466.0" />
+                        <TabPane prefHeight="480.0" prefWidth="777.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Pie Chart ">
+                              <content>
+                                <AnchorPane fx:id="n4" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <PieChart fx:id="chart" layoutX="83.0" layoutY="-1.0" prefHeight="417.0" prefWidth="608.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Estimation Liste IPS">
+                              <content>
+                                <AnchorPane fx:id="n5" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="txt_list_ips" layoutX="95.0" layoutY="33.0" prefHeight="354.0" prefWidth="588.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Estimation Liste ASTRE">
+                                 <content>
+                                    <AnchorPane fx:id="n6" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="txt_list_astre" layoutX="95.0" layoutY="33.0" prefHeight="354.0" prefWidth="588.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Liste des étudiants figurant dans les deux listes (Doute) ">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="txt_list_doute" layoutX="95.0" layoutY="33.0" prefHeight="354.0" prefWidth="588.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Liste Difficile à savoir">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="txt_list_difficile" layoutX="95.0" layoutY="33.0" prefHeight="354.0" prefWidth="588.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
             <Tab text="Résultat avec pondération">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="457.0" prefWidth="770.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp1) Les étudiants utilisent régulièrement Arduino et programment avec C++/C et python " wrappingWidth="279.6029052734375" />
+                        <Text layoutX="15.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp2) Les étudiants ayant fait au moins trois langages du web" wrappingWidth="318.147216796875" />
+                        <Text layoutX="15.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp3) Les étudiants ayant un parcours BTS et qui ont fait du dev. Web" wrappingWidth="319.2135009765625" />
+                        <Text layoutX="13.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp4) Les étudiants qui jouent aux jeux vidéos et qui sont intégrés dans des associations d’infographie" wrappingWidth="315.0938720703125" />
+                        <Text layoutX="12.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp5) Les étudiants qui utilisent régulièrement les logiciels de retouche et jouent aux jeux vidéo" wrappingWidth="323.80078125" />
+                        <Text layoutX="13.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp6) Les étudiants utilisent régulièrement arduino, créent souvent des robots et intéressés par ensimelec" wrappingWidth="321.8084716796875" />
+                        <Text layoutX="13.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp7)  Les étudiants utilisant un logiciel de retouche et Mac" wrappingWidth="317.6601867675781" />
+                        <Separator layoutX="12.0" layoutY="72.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Text fill="#dd9d9d" layoutX="456.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exprimer votre Opinion " textAlignment="CENTER">
+                           <font>
+                              <Font name="Kristen ITC" size="16.0" />
+                           </font>
+                        </Text>
+                        <Separator layoutX="12.0" layoutY="116.0" prefHeight="5.0" prefWidth="750.0" />
+                        <Separator layoutX="12.0" layoutY="156.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Text fill="#686868" layoutX="26.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour être plutôt en Astre ..." textAlignment="CENTER">
+                           <font>
+                              <Font name="Kristen ITC" size="14.0" />
+                           </font>
+                        </Text>
+                        <Separator layoutX="12.0" layoutY="206.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Text fill="#686868" layoutX="26.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pour être plutôt en IPS..." textAlignment="CENTER">
+                           <font>
+                              <Font name="Kristen ITC" size="14.0" />
+                           </font>
+                        </Text>
+                        <Separator layoutX="12.0" layoutY="243.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Separator layoutX="13.0" layoutY="279.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Separator layoutX="12.0" layoutY="321.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Separator layoutX="13.0" layoutY="361.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Separator layoutX="13.0" layoutY="395.0" prefHeight="4.0" prefWidth="750.0" />
+                        <Button fx:id="id_btnHyp11" layoutX="282.0" layoutY="444.0" mnemonicParsing="false" text="Générer les nouveaux résultats " />
+                        <ToggleButtonGroup fx:id="tbg1" layoutX="338.0" layoutY="74.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb1_1" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg1" />
+                                 </toggleGroup>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb1_3" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg1">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb1_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="#e1444400" toggleGroup="$tg1">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb1_7" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg1">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb1_10" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg1">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <Separator layoutX="333.0" layoutY="51.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="3.0" />
+                        <Separator layoutX="421.0" layoutY="51.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="0.0" />
+                        <Separator layoutX="488.0" layoutY="51.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="0.0" />
+                        <Separator layoutX="585.0" layoutY="51.0" orientation="VERTICAL" prefHeight="157.0" prefWidth="12.0" />
+                        <Separator layoutX="655.0" layoutY="50.0" orientation="VERTICAL" prefHeight="158.0" prefWidth="0.0" />
+                        <Text fill="#686868" layoutX="339.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalement d'accord" textAlignment="CENTER" wrappingWidth="88.0830078125">
+                           <font>
+                              <Font name="Kristen ITC" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#686868" layoutX="433.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D'accord" textAlignment="CENTER" wrappingWidth="59.0830078125">
+                           <font>
+                              <Font name="Kristen ITC" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#686868" layoutX="512.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neutre" textAlignment="CENTER" wrappingWidth="59.0830078125">
+                           <font>
+                              <Font name="Kristen ITC" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#686868" layoutX="597.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pas d'accord" textAlignment="CENTER" wrappingWidth="60.0830078125">
+                           <font>
+                              <Font name="Kristen ITC" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#686868" layoutX="668.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalement pas d'accord" textAlignment="CENTER" wrappingWidth="84.0830078125">
+                           <font>
+                              <Font name="Kristen ITC" size="12.0" />
+                           </font>
+                        </Text>
+                        <ToggleButtonGroup fx:id="tbg2" layoutX="337.0" layoutY="117.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb2_1" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg2" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb2_3" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg2">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb2_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg2">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb2_7" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg2">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb2_10" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg2">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <ToggleButtonGroup fx:id="tbg3" layoutX="337.0" layoutY="163.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb3_1" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg3" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb3_3" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg3">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb3_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg3">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb3_7" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg3">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb3_10" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg3">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <ToggleButtonGroup fx:id="tbg4" layoutX="336.0" layoutY="245.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb4_10" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg4" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb4_7" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg4">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb4_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg4">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb4_3" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg4">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb4_1" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg4">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <ToggleButtonGroup fx:id="tbg5" layoutX="337.0" layoutY="283.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb5_10" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg5" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb5_7" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg5">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb5_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg5">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb5_3" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg5">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb5_1" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg5">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <ToggleButtonGroup fx:id="tbg6" layoutX="337.0" layoutY="324.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb6_10" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg6" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb6_7" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg6">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb6_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg6">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb6_3" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg6">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb6_1" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg6">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <ToggleButtonGroup fx:id="tbg7" layoutX="337.0" layoutY="361.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb7_10" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg7" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb7_7" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg7">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb7_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg7">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb7_3" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg7">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb7_1" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg7">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <Text fx:id="txtnRB" layoutX="26.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test radio botton Value " />
+                        <Text layoutX="16.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Hyp8) Les étudiants ayant fait une prepa, ne codant pas pendant leur temps libre, ne s'intéressant pas à l’infographie" wrappingWidth="317.6601867675781" />
+                        <Separator layoutX="14.0" layoutY="434.0" prefHeight="4.0" prefWidth="750.0" />
+                        <ToggleButtonGroup fx:id="tbg8" layoutX="337.0" layoutY="399.0" prefHeight="32.0" prefWidth="300.0">
+                           <toggles>
+                              <RadioButton fx:id="rb8_10" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="10" textAlignment="CENTER" textFill="TRANSPARENT">
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="55.0">
+                                       <image>
+                                          <Image url="@../images/agreee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg8" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rb8_7" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="7" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg8">
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="36.0">
+                                       <image>
+                                          <Image url="@../images/agree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb8_5" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" selected="true" text="5" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg8">
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="64.0">
+                                       <image>
+                                          <Image url="@../images/neutral.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb8_3" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="70.0" text="3" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg8">
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0">
+                                       <image>
+                                          <Image url="@../images/disagree.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rb8_1" layoutX="204.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" text="1" textAlignment="CENTER" textFill="TRANSPARENT" toggleGroup="$tg8">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="65.0">
+                                       <image>
+                                          <Image url="@../images/disagreeee.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </RadioButton>
+                           </toggles>
+                        </ToggleButtonGroup>
+                        <Separator layoutX="333.0" layoutY="246.0" orientation="VERTICAL" prefHeight="188.0" prefWidth="6.0" />
+                        <Separator layoutX="421.0" layoutY="246.0" orientation="VERTICAL" prefHeight="189.0" prefWidth="4.0" />
+                        <Separator layoutX="488.0" layoutY="246.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="0.0" />
+                        <Separator layoutX="586.0" layoutY="246.0" orientation="VERTICAL" prefHeight="189.0" prefWidth="12.0" />
+                        <Separator layoutX="655.0" layoutY="245.0" orientation="VERTICAL" prefHeight="189.0" prefWidth="6.0" />
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab text="Historique">

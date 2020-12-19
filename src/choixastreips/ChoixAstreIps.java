@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -20,17 +21,19 @@ import javafx.stage.Stage;
  * @author Ghada
  */
 public class ChoixAstreIps extends Application {
-    
+
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("ResultsView.fxml"));
+         VBox vbox = new VBox();
         
-        Parent root=FXMLLoader.load(getClass().getResource("ResultsView.fxml"));
-        Scene scene= new Scene(root);
-        
+        Scene scene = new Scene(root);
+        stage.setTitle("Choix Astre/IPS");
         stage.setScene(scene);
-        stage.show();
         
-       
+        stage.show();
+
     }
 
     /**
@@ -39,5 +42,5 @@ public class ChoixAstreIps extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

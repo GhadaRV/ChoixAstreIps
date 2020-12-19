@@ -14,10 +14,10 @@ import java.sql.SQLException;
  * @author Ghada
  */
 public class DBConnector {
-    
-    public static Connection getConnection() throws SQLException{
-        Connection connection= (Connection) DriverManager.getConnection("jdbc:mysql://localhost/astre-ips","root"," ");
+
+    public static Connection getConnection() throws SQLException {
+        Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/astre-ips", "root", " ");
         return connection;
-        
+
     }
 }
