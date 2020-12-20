@@ -6,12 +6,14 @@
 package choixastreips.controller;
 
 import choixastreips.model.Data;
+import choixastreips.model.Historique;
 import choixastreips.util.DBConnector;
 import com.gluonhq.charm.glisten.control.ToggleButtonGroup;
 import com.mysql.jdbc.Connection;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -86,7 +88,7 @@ public class ResultsController implements Initializable {
     ObservableList<Data> listAutre = FXCollections.observableArrayList();
     ObservableList<Data> x = FXCollections.observableArrayList();
     ObservableList<Data> listDoute = FXCollections.observableArrayList();
-
+    ObservableList<Historique> listHistorique = FXCollections.observableArrayList();
     @FXML
     private TableView<Data> table;
     @FXML
@@ -350,10 +352,22 @@ public class ResultsController implements Initializable {
      private int sizeDoute;
     @FXML
     private PieChart chart2;
-    @FXML
-    private TextArea tt2;
     
     String textFinalResults="";
+    @FXML
+    private TableView<Historique> t2;
+    @FXML
+    private TableColumn<Historique, String> d_1;
+    @FXML
+    private TableColumn<Historique, Integer> d_2;
+    @FXML
+    private TableColumn<Historique, Integer> d_3;
+    @FXML
+    private TableColumn<Historique, Integer> d_4;
+    @FXML
+    private TableColumn<Historique, Integer> d_5;
+    @FXML
+    private TableColumn<Historique, Integer> d_6;
        
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -385,7 +399,9 @@ public class ResultsController implements Initializable {
                         rs.getString("Que penses-tu de ? [Anaconda]"), rs.getString("Que penses-tu de ? [Ionic]")
                 ));
             }
-
+            
+            
+     
             col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
             col_timestamp.setCellValueFactory(new PropertyValueFactory<>("timestamp"));
             col_numEtu.setCellValueFactory(new PropertyValueFactory<>("num_etu"));
@@ -426,6 +442,8 @@ public class ResultsController implements Initializable {
             col_avisAtom.setCellValueFactory(new PropertyValueFactory<>("avisAtom"));
             col_avisAnaconda.setCellValueFactory(new PropertyValueFactory<>("avisAnaconda"));
             col_avisIonic.setCellValueFactory(new PropertyValueFactory<>("avisIonic"));
+            
+          
 
             /**
              * **************************************
@@ -686,6 +704,7 @@ public class ResultsController implements Initializable {
                             )
                     );
 
+                   
                 }
             });
 
@@ -884,12 +903,55 @@ public class ResultsController implements Initializable {
                     
                     System.out.println("Astre: "+percentAstre+"%     ;Probablement en ASTRE: "+percentMaybeAstre+"%     ;IPS: "+percentIps+"%     ;Probablement en IPS: "+percentMaybeIps +"%     ;Neutre: " +percentDoute+"%");
                 
-                    
-                   
+                      Connection con = null;
+                      
+                        try {
+                            con = DBConnector.getConnection();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                           String query = "INSERT INTO `historique`(`dateCalcul`, `ips`, `astre`, `maybeAstre`, `maybeIPS`, `neutre`)  VALUES('"+dateCalcul+"',"+percentIps+","+percentAstre+","+percentMaybeAstre+","+percentIps+"," +percentDoute+")";
+      
+                    ResultSet rs = null;
+                    try {
+                    Statement stmt = con.createStatement();
 
-                        textFinalResults = textFinalResults + "Date Calcul:  "+dateCalcul+"      ;Astre: "+percentAstre+"%     ;Probablement en ASTRE: "+percentMaybeAstre+"%     ;IPS: "+percentIps+"%     ;Probablement en IPS: "+percentMaybeIps +"%     ;Neutre: " +percentDoute+"%"+ "\n";
+                       int c= stmt.executeUpdate(query);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+ 
                     
-                    tt2.setText(textFinalResults);
+                    Connection con2 = null;
+                    try {
+                        con2 = DBConnector.getConnection();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+            ResultSet rs2 = null;
+                    try {
+                        rs2 = con2.createStatement().executeQuery("select * from historique ");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    try {
+                        while (rs2.next()) {
+                            listHistorique.add(new Historique(rs2.getString("dateCalcul"), rs2.getInt("ips"),rs2.getInt("astre"),rs2.getInt("neutre"), rs2.getInt("maybeAstre"), rs2.getInt("maybeIPS") ));
+                        }       } catch (SQLException ex) {
+                        Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                 d_1.setCellValueFactory(new PropertyValueFactory<>("date"));
+                 d_2.setCellValueFactory(new PropertyValueFactory<>("p_ips"));
+                 d_3.setCellValueFactory(new PropertyValueFactory<>("p_astre"));
+                 d_4.setCellValueFactory(new PropertyValueFactory<>("p_neutre"));
+                 d_5.setCellValueFactory(new PropertyValueFactory<>("p_p_astre"));
+                 d_6.setCellValueFactory(new PropertyValueFactory<>("p_p_ips"));
+                 
+                    t2.setItems(listHistorique);
+                        
                     
                
                 
