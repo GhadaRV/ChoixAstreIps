@@ -4,7 +4,7 @@
 2. Download JavaFX for windows 64 bits + extract it under C:\Program Files\Java
 3. Download Scene Builder https://gluonhq.com/products/scene-builder/
 4. In Netbeans: Tools>Options>Java>JavaFX : Set SceneBuilder Path
-5. Import the "astre-ips.sql" in phpmyadmin databases.
+5. Import the "astre-ips.sql" database file in phpmyadmin .
 However, if Netbeans takes a lot of time to read the project, please empty the cache of the program. 
 
 
