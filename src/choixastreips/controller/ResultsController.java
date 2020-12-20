@@ -10,6 +10,7 @@ import choixastreips.model.Historique;
 import choixastreips.util.DBConnector;
 import com.gluonhq.charm.glisten.control.ToggleButtonGroup;
 import com.mysql.jdbc.Connection;
+import com.sun.javafx.font.Metrics;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +43,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
@@ -341,19 +344,18 @@ public class ResultsController implements Initializable {
     @FXML
     private Text txtnRB8;
 
-   
-     private   int post_listeAstre; 
-     private   int post_listeProbablementAstre; 
-     private   int post_listeIPS; 
-     private   int post_listeProbablementIPS; 
-     private   int post_listeDoute; 
-     private   int post_listeDifficile; 
-     private int sizeReste; 
-     private int sizeDoute;
+    private int post_listeAstre;
+    private int post_listeProbablementAstre;
+    private int post_listeIPS;
+    private int post_listeProbablementIPS;
+    private int post_listeDoute;
+    private int post_listeDifficile;
+    private int sizeReste;
+    private int sizeDoute;
     @FXML
     private PieChart chart2;
-    
-    String textFinalResults="";
+
+    String textFinalResults = "";
     @FXML
     private TableView<Historique> t2;
     @FXML
@@ -368,10 +370,12 @@ public class ResultsController implements Initializable {
     private TableColumn<Historique, Integer> d_5;
     @FXML
     private TableColumn<Historique, Integer> d_6;
-       
+    @FXML
+    private PieChart chart9;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
- 
+
         try {
             Connection con = DBConnector.getConnection();
 
@@ -399,9 +403,7 @@ public class ResultsController implements Initializable {
                         rs.getString("Que penses-tu de ? [Anaconda]"), rs.getString("Que penses-tu de ? [Ionic]")
                 ));
             }
-            
-            
-     
+
             col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
             col_timestamp.setCellValueFactory(new PropertyValueFactory<>("timestamp"));
             col_numEtu.setCellValueFactory(new PropertyValueFactory<>("num_etu"));
@@ -442,8 +444,6 @@ public class ResultsController implements Initializable {
             col_avisAtom.setCellValueFactory(new PropertyValueFactory<>("avisAtom"));
             col_avisAnaconda.setCellValueFactory(new PropertyValueFactory<>("avisAnaconda"));
             col_avisIonic.setCellValueFactory(new PropertyValueFactory<>("avisIonic"));
-            
-          
 
             /**
              * **************************************
@@ -662,11 +662,10 @@ public class ResultsController implements Initializable {
                         textDoute = textDoute + "             ID : " + item.getId() + "      ; Le numero de l'étudiant est : " + item.getNum_etu() + "        ; Son pays est: " + item.getPays() + "." + "\n";
                     }
                     txt_list_doute.setText(textDoute);
-                  
+
                     /**
                      * ************************************
                      */
-
                     String textDifficile = "\n \n \n";
                     for (Data item : listAutre) {
 
@@ -678,7 +677,7 @@ public class ResultsController implements Initializable {
                      */
 
                     sizeReste = listAutre.size();
-                   
+
                     String resteS = String.valueOf(sizeReste);
                     id_tvReste.setText(resteS);
 
@@ -704,7 +703,6 @@ public class ResultsController implements Initializable {
                             )
                     );
 
-                   
                 }
             });
 
@@ -714,7 +712,7 @@ public class ResultsController implements Initializable {
             id_btnResPond.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
-                    
+
                     /**
                      * ***************************************************
                      */
@@ -730,199 +728,194 @@ public class ResultsController implements Initializable {
                     /**
                      * ***************************************************
                      */
-                   int coefHyp1Num = Integer.parseInt(txtnRB1.getText());
-                   int coefHyp2Num = Integer.parseInt(txtnRB2.getText());
-                   int coefHyp3Num = Integer.parseInt(txtnRB3.getText());
-                   int coefHyp4Num = Integer.parseInt(txtnRB4.getText());
-                   int coefHyp5Num = Integer.parseInt(txtnRB5.getText());
-                   int coefHyp6Num = Integer.parseInt(txtnRB6.getText());
-                   int coefHyp7Num = Integer.parseInt(txtnRB7.getText());
-                   int coefHyp8Num = Integer.parseInt(txtnRB8.getText());
-     
-                   /*************************************************/
-                   
-          
-      
-   
-                   
-                switch (coefHyp1Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp1Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp1Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp1Num; 
-                    break;
-                    case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp1Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp1Num; 
-                    break;
-                 
-                }
-                
-                  switch (coefHyp6Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp6Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp6Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp6Num; 
-                    break;
-                     case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp6Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp6Num; 
-                    break;
-                 
-                }
-                  
+                    int coefHyp1Num = Integer.parseInt(txtnRB1.getText());
+                    int coefHyp2Num = Integer.parseInt(txtnRB2.getText());
+                    int coefHyp3Num = Integer.parseInt(txtnRB3.getText());
+                    int coefHyp4Num = Integer.parseInt(txtnRB4.getText());
+                    int coefHyp5Num = Integer.parseInt(txtnRB5.getText());
+                    int coefHyp6Num = Integer.parseInt(txtnRB6.getText());
+                    int coefHyp7Num = Integer.parseInt(txtnRB7.getText());
+                    int coefHyp8Num = Integer.parseInt(txtnRB8.getText());
+
+                    /**
+                     * **********************************************
+                     */
+                    switch (coefHyp1Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp1Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp1Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp1Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp1Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp1Num;
+                            break;
+
+                    }
+
+                    switch (coefHyp6Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp6Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp6Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp6Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp6Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp6Num;
+                            break;
+
+                    }
+
                     switch (coefHyp8Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp8Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp8Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp8Num; 
-                    break;
-                  case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp8Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp8Num; 
-                    break;
-                }
-                     switch (coefHyp2Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp2Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp2Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp2Num; 
-                    break;
-                     case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp2Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp2Num; 
-                    break;
-                 
-                }
-                         switch (coefHyp3Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp3Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp3Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp3Num; 
-                    break;
-                     case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp3Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp3Num; 
-                    break;
-                 
-                }
-              switch (coefHyp4Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp4Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp4Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp4Num; 
-                    break;
-                  case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp4Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp4Num; 
-                    break;
-                }
-              switch (coefHyp5Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp5Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp5Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp5Num; 
-                    break;
-                  case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp5Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp5Num; 
-                    break;
-                }
-             switch (coefHyp7Num) {
-                  case 1:
-                   post_listeAstre=post_listeAstre+hyp7Num; 
-                    break;
-                  case 5:
-                    post_listeDoute=post_listeDoute+hyp7Num; 
-                    break;
-                  case 10:
-                  post_listeIPS=post_listeIPS+hyp7Num; 
-                    break;
-                  case 3:
-                  post_listeProbablementAstre=post_listeProbablementAstre+hyp7Num; 
-                    break;
-                    case 7:
-                  post_listeProbablementIPS=post_listeProbablementIPS+hyp7Num; 
-                    break;
-                }
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp8Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp8Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp8Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp8Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp8Num;
+                            break;
+                    }
+                    switch (coefHyp2Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp2Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp2Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp2Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp2Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp2Num;
+                            break;
 
-                    post_listeDifficile=sizeReste;
-                    
-                    
-                    int total= post_listeAstre+post_listeProbablementAstre+post_listeIPS+post_listeProbablementIPS+post_listeDoute;
-                    int percentAstre = (int)(post_listeAstre* 100.0f) / total;
-                    int percentMaybeAstre = (int)(post_listeProbablementAstre* 100.0f) / total;
-                    int percentIps=(int)(post_listeIPS* 100.0f) / total;
-                    int percentMaybeIps=(int)(post_listeProbablementIPS* 100.0f) / total;
-                     int percentDoute=(int)(post_listeDoute* 100.0f) / total;
-                    
+                    }
+                    switch (coefHyp3Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp3Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp3Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp3Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp3Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp3Num;
+                            break;
+
+                    }
+                    switch (coefHyp4Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp4Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp4Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp4Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp4Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp4Num;
+                            break;
+                    }
+                    switch (coefHyp5Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp5Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp5Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp5Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp5Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp5Num;
+                            break;
+                    }
+                    switch (coefHyp7Num) {
+                        case 1:
+                            post_listeAstre = post_listeAstre + hyp7Num;
+                            break;
+                        case 5:
+                            post_listeDoute = post_listeDoute + hyp7Num;
+                            break;
+                        case 10:
+                            post_listeIPS = post_listeIPS + hyp7Num;
+                            break;
+                        case 3:
+                            post_listeProbablementAstre = post_listeProbablementAstre + hyp7Num;
+                            break;
+                        case 7:
+                            post_listeProbablementIPS = post_listeProbablementIPS + hyp7Num;
+                            break;
+                    }
+
+                    post_listeDifficile = sizeReste;
+
+                    int total = post_listeAstre + post_listeProbablementAstre + post_listeIPS + post_listeProbablementIPS + post_listeDoute;
+                    int percentAstre = (int) (post_listeAstre * 100.0f) / total;
+                    int percentMaybeAstre = (int) (post_listeProbablementAstre * 100.0f) / total;
+                    int percentIps = (int) (post_listeIPS * 100.0f) / total;
+                    int percentMaybeIps = (int) (post_listeProbablementIPS * 100.0f) / total;
+                    int percentDoute = (int) (post_listeDoute * 100.0f) / total;
+
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy  HH:mm:ss");
-                    String dateCalcul =dateFormat.format(new Date());
-                    
-                    System.out.println("Astre: "+percentAstre+"%     ;Probablement en ASTRE: "+percentMaybeAstre+"%     ;IPS: "+percentIps+"%     ;Probablement en IPS: "+percentMaybeIps +"%     ;Neutre: " +percentDoute+"%");
-                
-                      Connection con = null;
-                      
-                        try {
-                            con = DBConnector.getConnection();
-                        } catch (SQLException ex) {
-                            Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
-                           String query = "INSERT INTO `historique`(`dateCalcul`, `ips`, `astre`, `maybeAstre`, `maybeIPS`, `neutre`)  VALUES('"+dateCalcul+"',"+percentIps+","+percentAstre+","+percentMaybeAstre+","+percentIps+"," +percentDoute+")";
-      
-                    ResultSet rs = null;
-                    try {
-                    Statement stmt = con.createStatement();
+                    String dateCalcul = dateFormat.format(new Date());
 
-                       int c= stmt.executeUpdate(query);
+                    System.out.println("Astre: " + percentAstre + "%     ;Probablement en ASTRE: " + percentMaybeAstre + "%     ;IPS: " + percentIps + "%     ;Probablement en IPS: " + percentMaybeIps + "%     ;Neutre: " + percentDoute + "%");
+
+                    Connection con = null;
+
+                    try {
+                        con = DBConnector.getConnection();
                     } catch (SQLException ex) {
                         Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
                     }
- 
-                    
+
+                    String query = "INSERT INTO `historique`(`dateCalcul`, `ips`, `astre`, `maybeAstre`, `maybeIPS`, `neutre`)  VALUES('" + dateCalcul + "'," + percentIps + "," + percentAstre + "," + percentMaybeAstre + "," + percentIps + "," + percentDoute + ")";
+
+                    ResultSet rs = null;
+                    try {
+                        Statement stmt = con.createStatement();
+
+                        int c = stmt.executeUpdate(query);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                     Connection con2 = null;
                     try {
                         con2 = DBConnector.getConnection();
@@ -930,7 +923,7 @@ public class ResultsController implements Initializable {
                         Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-            ResultSet rs2 = null;
+                    ResultSet rs2 = null;
                     try {
                         rs2 = con2.createStatement().executeQuery("select * from historique ");
                     } catch (SQLException ex) {
@@ -939,27 +932,24 @@ public class ResultsController implements Initializable {
 
                     try {
                         while (rs2.next()) {
-                            listHistorique.add(new Historique(rs2.getString("dateCalcul"), rs2.getInt("ips"),rs2.getInt("astre"),rs2.getInt("neutre"), rs2.getInt("maybeAstre"), rs2.getInt("maybeIPS") ));
-                        }       } catch (SQLException ex) {
+                            listHistorique.add(new Historique(rs2.getString("dateCalcul"), rs2.getInt("ips"), rs2.getInt("astre"), rs2.getInt("neutre"), rs2.getInt("maybeAstre"), rs2.getInt("maybeIPS")));
+                        }
+                    } catch (SQLException ex) {
                         Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                 d_1.setCellValueFactory(new PropertyValueFactory<>("date"));
-                 d_2.setCellValueFactory(new PropertyValueFactory<>("p_ips"));
-                 d_3.setCellValueFactory(new PropertyValueFactory<>("p_astre"));
-                 d_4.setCellValueFactory(new PropertyValueFactory<>("p_neutre"));
-                 d_5.setCellValueFactory(new PropertyValueFactory<>("p_p_astre"));
-                 d_6.setCellValueFactory(new PropertyValueFactory<>("p_p_ips"));
-                 
+                    d_1.setCellValueFactory(new PropertyValueFactory<>("date"));
+                    d_2.setCellValueFactory(new PropertyValueFactory<>("p_ips"));
+                    d_3.setCellValueFactory(new PropertyValueFactory<>("p_astre"));
+                    d_4.setCellValueFactory(new PropertyValueFactory<>("p_neutre"));
+                    d_5.setCellValueFactory(new PropertyValueFactory<>("p_p_astre"));
+                    d_6.setCellValueFactory(new PropertyValueFactory<>("p_p_ips"));
+
                     t2.setItems(listHistorique);
-                        
-                    
-               
-                
-                /*********************************************/
-                
-                
-                
-                 ObservableList<PieChart.Data> pieChart2
+
+                    /**
+                     * ******************************************
+                     */
+                    ObservableList<PieChart.Data> pieChart2
                             = FXCollections.observableArrayList(
                                     new PieChart.Data("ASTRE", percentAstre),
                                     new PieChart.Data("IPS", percentIps),
@@ -978,16 +968,54 @@ public class ResultsController implements Initializable {
                             )
                     );
 
+                    post_listeAstre = 0;
+                    post_listeIPS = 0;
+                    post_listeDoute = 0;
+                    post_listeProbablementAstre = 0;
+                    post_listeProbablementIPS = 0;
 
-                
-                     
-                post_listeAstre=0;
-                post_listeIPS=0;
-                post_listeDoute=0;
-                post_listeProbablementAstre=0;
-                post_listeProbablementIPS=0;
-                /********************************************/
-                 tabpane.getSelectionModel().selectNext();
+                    t2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+                        @Override
+                        public void changed(ObservableValue observableValue, Object oldValue, Object newValue) {
+                            //Check whether item is selected and set value of selected item to Label
+                            if (t2.getSelectionModel().getSelectedItem() != null) {
+                                TableViewSelectionModel selectionModel = t2.getSelectionModel();
+                                ObservableList selectedCells = selectionModel.getSelectedCells();
+                                TablePosition tablePosition = (TablePosition) selectedCells.get(0);
+                                //     Object val = tablePosition.getTableColumn().getCellData(newValue);
+                                //System.out.println("Selected Value" + val);
+                                Historique h = t2.getSelectionModel().getSelectedItem();
+                                System.out.println(h.getP_ips());
+                                
+                                  ObservableList<PieChart.Data> pieChart3
+                            = FXCollections.observableArrayList(
+                                    new PieChart.Data("ASTRE", h.getP_astre()),
+                                    new PieChart.Data("IPS", h.getP_ips()),
+                                    new PieChart.Data("Probablement en Astre", h.getP_p_astre()),
+                                    new PieChart.Data("Probablement en IPS", h.getP_p_ips()),
+                                    new PieChart.Data("Neutre", h.getP_neutre()));
+
+                    chart9.setData(pieChart3);
+                    chart9.setTitle("Historique- Choix Astre/IPS");
+
+                    pieChart3.forEach(data
+                            -> data.nameProperty().bind(
+                                    Bindings.concat(
+                                            data.getName(), " : ", data.pieValueProperty().intValue(), "%. "
+                                    )
+                            )
+                    );
+
+                            }
+                        }
+                    });
+
+                  
+                    /**
+                     * *****************************************
+                     */
+                    tabpane.getSelectionModel().selectNext();
+
                 }
             });
 
