@@ -897,17 +897,17 @@ public class ResultsController implements Initializable {
 
                     System.out.println("Astre: " + percentAstre + "%     ;Probablement en ASTRE: " + percentMaybeAstre + "%     ;IPS: " + percentIps + "%     ;Probablement en IPS: " + percentMaybeIps + "%     ;Neutre: " + percentDoute + "%");
 
-                    Connection con = null;
+                    Connection con3 = null;
 
                     try {
-                        con = DBConnector.getConnection();
+                        con3 = DBConnector.getConnection();
                     } catch (SQLException ex) {
                         Logger.getLogger(ResultsController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    String query = "INSERT INTO `historique`(`dateCalcul`, `ips`, `astre`, `maybeAstre`, `maybeIPS`, `neutre`)  VALUES('" + dateCalcul + "'," + percentIps + "," + percentAstre + "," + percentMaybeAstre + "," + percentIps + "," + percentDoute + ")";
+                    String query = "INSERT INTO `historique`(`dateCalcul`, `ips`, `astre`, `maybeAstre`, `maybeIPS`, `neutre`)  VALUES('" + dateCalcul + "'," + percentIps + "," + percentAstre + "," + percentMaybeAstre + "," + percentMaybeIps + "," + percentDoute + ")";
 
-                    ResultSet rs = null;
+                    ResultSet rs3 = null;
                     try {
                         Statement stmt = con.createStatement();
 
